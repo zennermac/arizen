@@ -1,0 +1,103 @@
+<template id=arizen-checkbox-template>
+    <style>
+        @import "resources/zstyle.css";
+
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .container input {
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 19px;
+            width: 19px;
+            background-color: #bbb;
+        }
+
+        .container input:checked ~ .checkmark {
+            background-color: var(--arizen-fg);
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    </style>
+
+    <label class=container>
+        <input type=checkbox id=checkboxInput name=checkboxInput >
+        <label for=checkboxInputLabel> </label>
+        <span class=checkmark></span>
+    </label>
+    <!-- <dialog>
+        <div class=buttons>
+            <button id=closeButton>X</button>
+        </div>
+        <div class=content>
+            <header>
+                <h2><slot name=headerText></slot></h2>
+            </header>
+            <hr/>
+            <slot name=content></slot>
+        </div>
+    </dialog> -->
+</template>
+
+<script>
+const ArizenCheckboxElement = (() => {
+    const doc = document.currentScript.ownerDocument;
+
+    const cls = class extends HTMLElement {
+        constructor() {
+            super();
+            // const template = doc.getElementById("arizen-dialog-template");
+            // const dom = template.content.cloneNode(true);
+            // const shadowRoot = this.attachShadow({mode: "open"});
+            // shadowRoot.appendChild(dom);
+            // this._dialog = shadowRoot.querySelector("dialog");
+            // shadowRoot.getElementById("closeButton").addEventListener("click", () => this.close());
+        }
+
+        // showModal() {
+        //     this._dialog.showModal();
+        // }
+        //
+        // close() {
+        //     this._dialog.close();
+        //     this.dispatchEvent(new Event("close", {bubbles: true, composed: false}));
+        // }
+    }
+
+    return cls;
+})();
+
+customElements.define("arizen-checkbox", ArizenCheckboxElement);
+</script>

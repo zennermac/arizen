@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="resources/zwallet.css">
     <script src="tabs.js"></script>
     <link rel=import href="webcomponents/arizen-dialog.html">
+    <link rel=import href="webcomponents/arizen-checkbox.html">
 </head>
 <body>
 
@@ -283,11 +284,12 @@
     <div data-tab-content=overview class='walletOverview tabContent'>
         <div class='tabContentHeader walletOverviewControl'>
             <span class=tabContentHeaderLabel data-tr=wallet.listOfAddresses>List of Addresses</span>
-            <label class=container>
+            <!-- <label class=container>
                 <input type=checkbox id=actionShowZeroBalances name=actionShowZeroBalances>
                 <label for=actionShowZeroBalances data-tr=wallet.tabOverview.showZeroBalances>Show zero balances</label>
                 <span class=checkmark></span>
-            </label>
+            </label> -->
+            <arizen-checkbox data-tr=wallet.tabOverview.showZeroBalances >Show zero balances</arizen-checkbox>
             <button id=createNewAddrButton class=smallButton data-tr=wallet.tabOverview.newAddress>Get a new address</button>
         </div>
         <template id=addrItemTemplate>

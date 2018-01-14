@@ -218,7 +218,7 @@ arizen-dialog > [slot="content"] {
     min-width: 600px;
 }
 
-.container {
+/*.container {
     display: block;
     position: relative;
     padding-left: 10px;
@@ -265,7 +265,7 @@ arizen-dialog > [slot="content"] {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-}
+}*/
 
 .createButtonCheck {
     align-items: center;
